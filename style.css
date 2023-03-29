@@ -1,0 +1,160 @@
+/* imported Outfit font */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+/* root element used to store variables */
+:root {
+    --cyan: hsl(178, 100%, 50%);
+    --darkBlue: hsl(215, 32%, 27%);
+    --softBlue: hsl(215, 51%, 70%);
+    --white: hsl(0, 0%, 100%);
+}
+
+
+* {
+    /* tells every element will have a border box model instead of content-box */
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    /* paints background color*/
+    background-color: hsl(217, 54%, 11%);
+    /* makes card container be centered within the body */
+    display: flex;
+    /* 100vh means the body element will be the 100% view height of the browser */
+    height: 100vh;
+    /* aligns items vertically to be centered inside the 100vh */
+    align-items: center;
+    /* aligns flex items to be horizontally centered */
+    justify-content: center;
+    /* we tell the body element to have the font we imported and sans-serif as backup*/
+    font-family: 'Outfit', sans-serif;
+}
+
+h1 {
+    color: var(--white);
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 25px 0;
+}
+
+
+p {
+    font-size: 17px;
+    color: var(--softBlue);
+    font-weight: 300;
+}
+
+/* image element will have a fixed max-width */
+img {
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+/* id for nft svg */
+#eth {
+    color: var(--cyan);
+}
+/* id for clock time svg */
+#time {
+    color: var(--softBlue);
+}
+
+/* a block level element that centers whatever it's inside */
+.img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+/* the class image fills it's image container */
+.img-container .img {
+    width: 100%;
+    height: 100%;
+}
+/* card class gives card-like properties to make it look like a card */
+.card {
+    background-color: hsl(216, 50%, 16%);
+    padding: 25px;
+    border: 1px hsl(215, 32%, 27%);
+    border-radius: 10px;
+    width: 345px;
+    /* gives the card 2 shadow's */
+    /* the first shadow is lighter than the second one */
+    box-shadow: rgb(0 0 0 / 3%) 0px 36px 15px 17px, 
+  rgb(0 0 0 / 5%) 0px 30px 20px 45px;
+}
+
+/* contains both span's and align's them with flexbox */
+.span-container {
+    display: flex;
+    padding: 25px 0;
+    justify-content: space-between;
+    font-size: 16px;
+    border-bottom: 0.5px solid var(--softBlue);
+}
+
+/* contain's the avatar with the description */
+.author-container {
+    display: flex;
+    padding: 15px 0;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.author {
+    font-weight: 400;
+    color: var(--white);
+}
+
+/* targets avatar picture */
+.avatar {
+    width: 45px;
+    border: 1px solid var(--white);
+    border-radius: 50%;
+    height: auto;
+}
+
+/* pseudo class hover on the h1 element*/
+h1:hover {
+    color: var(--cyan);
+    cursor: pointer;
+}
+/* pseudo class hover on class author */
+.author:hover {
+    color: var(--cyan);
+    cursor: pointer;
+}
+
+/* this is a class that's inside the img container and when activated it makes the container get colored */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* has to be a color that has opacity so i'm using a hexacolor value #00ffff*/
+    background-color: #00ffff80;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* targets the class overlay and the img container when hovered */
+.img-container:hover .overlay {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+/* allows me to center the svg view icon inside the overlay */
+.view-icon {
+    /* allows me to use top/left properties to move it around it's parent */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    /* color's the icon to white */
+    color: var(--white)
+}
